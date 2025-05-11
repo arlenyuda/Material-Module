@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+
+        <record id="material_view_search" model="ir.ui.view">
+            <field name="name">material View Search</field>
+            <field name="model">material.material</field>
+            <field name="arch" type="xml">
+                <search string="Search Material">
+                    <field name="name" />
+                    <field name="code" />
+                    <separator/>
+                    <filter string="Type: Fabric" name="type_fabric" domain="[('material_type', '=', 'fabric')]"/>
+                    <filter string="Type: Jeans" name="type_jeans" domain="[('material_type', '=', 'jeans')]"/>
+                    <filter string="Type: Cotton" name="type_cotton" domain="[('material_type', '=', 'cotton')]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="material_view_tree" model="ir.ui.view">
+            <field name="name">Material View Tree</field>
+            <field name="model">material.material</field>
+            <field name="arch" type="xml">
+                <tree string="Material">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="material_type" />
+                    <field name="currency_id" invisible="1" />
+                    <field name="buy_price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="supplier_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="material_view_form" model="ir.ui.view">
+            <field name="name">Material View Form</field>
+            <field name="model">material.material</field>
+            <field name="arch" type="xml">
+                <form string="Material">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="code" />
+                                <field name="material_type" />
+                            </group>
+                            <group>
+                                <field name="currency_id" invisible="1" />
+                                <field name="buy_price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="supplier_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_material_view" model="ir.actions.act_window">
+            <field name="name">Material</field>
+            <field name="res_model">material.material</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="material_view_search"/>
+        </record>
+
+        <menuitem id="menu_material_root" name="Material" action="action_material_view" sequence="20"/>
+
+    </data>
+</odoo>

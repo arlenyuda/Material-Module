@@ -1,0 +1,25 @@
+<odoo>
+    <record id="material_cotton_red_a" model="material.material">
+        <field name="name">Cotton Red A</field>
+        <field name="code">CR-A001</field>
+        <field name="material_type">cotton</field>
+        <field name="buy_price">45000</field>
+        <field name="supplier_id" ref="base.res_partner_1"/>
+    </record>
+
+    <record id="material_jeans_dark_blue" model="material.material">
+        <field name="name">Jeans Dark Blue</field>
+        <field name="code">JD-B002</field>
+        <field name="material_type">jeans</field>
+        <field name="buy_price">75000</field>
+        <field name="supplier_id" ref="base.res_partner_2"/>
+    </record>
+
+    <record id="material_fabric_silk_white" model="material.material">
+        <field name="name">Fabric Silk White</field>
+        <field name="code">FS-W003</field>
+        <field name="material_type">fabric</field>
+        <field name="buy_price">65000</field>
+        <field name="supplier_id" ref="base.res_partner_3"/>
+    </record>
+</odoo>
